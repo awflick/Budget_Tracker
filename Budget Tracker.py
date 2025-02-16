@@ -1,4 +1,6 @@
 # Budget Tracker
+# Adam Flick
+# January 2025
 
 #to add - view all transactions and save user session so users don't have keep re-entering budget info after they close the program
 import json
