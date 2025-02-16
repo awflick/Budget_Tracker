@@ -1,4 +1,6 @@
 # Budget Tracker
+# Adam Flick
+# January 2025
 
 #to add - view all transactions and save user session so users don't have keep re-entering budget info after they close the program
 import json
@@ -91,8 +93,8 @@ def load_data(json_filename="budget_data.json", csv_filename="budget_data.csv"):
 
 # Function to get the directory for storage
 def get_storage_directory():
-    # For local testing, we can use the "user files" folder
-    # For web apps or mobile apps, we will adapt the logic here later
+    # For local testing, use the "user files" folder
+    # For web apps or mobile apps, adapt the logic here later
     current_directory = os.getcwd()
     user_files_directory = os.path.join(current_directory, 'user files')
 
@@ -101,7 +103,6 @@ def get_storage_directory():
         os.makedirs(user_files_directory)
 
     return user_files_directory
-
 
 
 # Function to prompt user to select folder for saving the report
@@ -121,7 +122,6 @@ def select_save_location():
         return None
     
 
-
 # Validate date
 def validate_date(date_string):
     try:
@@ -130,7 +130,6 @@ def validate_date(date_string):
     except ValueError:
         print("Invalid date format. Please use MM-DD-YYYY.")
         return False
-
 
 
 # Add or edit transactions
@@ -248,7 +247,6 @@ def add_edit_transactions(data, action):
         print("Invalid action. Please choose 'add' or 'edit'.")
 
     return data
-
 
 
 # add and edit budget goals
