@@ -1,6 +1,4 @@
 # Budget Tracker
-# Adam Flick
-# January 2025
 
 #to add - view all transactions and save user session so users don't have keep re-entering budget info after they close the program
 import json
@@ -93,8 +91,8 @@ def load_data(json_filename="budget_data.json", csv_filename="budget_data.csv"):
 
 # Function to get the directory for storage
 def get_storage_directory():
-    # For local testing, use the "user files" folder
-    # For web apps or mobile apps, adapt the logic here later
+    # For local testing, we can use the "user files" folder
+    # For web apps or mobile apps, we will adapt the logic here later
     current_directory = os.getcwd()
     user_files_directory = os.path.join(current_directory, 'user files')
 
@@ -389,6 +387,7 @@ def track_budget_goals(data, goals, report=None):
             report.append(f"✅ On track in {category}: Spent ${actual:.2f}, Remaining budget: ${remaining:.2f}")
 
     return report
+
 
 
 # view budget goals
