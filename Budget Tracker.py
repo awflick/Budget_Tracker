@@ -9,6 +9,9 @@ from datetime import datetime
 import tkinter as tk
 from tkinter import filedialog
 
+# ========================
+# File Management & Storage
+# ========================
 
 # Function to save data to a JSON file
 def save_data(budget_data, budget_goals, filename="budget_data.json"):
@@ -32,7 +35,6 @@ def save_data(budget_data, budget_goals, filename="budget_data.json"):
     except Exception as e:
         print(f"Error saving data to JSON: {e}")
 
-        
 
 # Function to save budget data to CSV
 def save_to_csv(df, file_path):
@@ -48,7 +50,6 @@ def save_to_csv(df, file_path):
         print(f"Data successfully exported to CSV at {file_path}.")
     except Exception as e:
         print(f"Error saving data to CSV: {e}")
-        
         
 
 # Function to load data from a file (both JSON and CSV)
@@ -87,7 +88,6 @@ def load_data(json_filename="budget_data.json", csv_filename="budget_data.csv"):
     except json.JSONDecodeError:
         print("Error reading saved JSON data. Starting with empty session.")
         return pd.DataFrame(columns=["Date", "Type", "Category", "Amount"]), {}
-
 
 
 # Function to get the directory for storage
@@ -130,6 +130,9 @@ def validate_date(date_string):
         print("Invalid date format. Please use MM-DD-YYYY.")
         return False
 
+# =======================
+# Add / Edit Transactions
+# =======================
 
 # Add or edit transactions
 def add_edit_transactions(data, action):
@@ -247,8 +250,11 @@ def add_edit_transactions(data, action):
 
     return data
 
+# =======================
+# Add & Edit Budget Goals
+# =======================
 
-# add and edit budget goals
+# Add and edit budget goals
 def add_edit_goals(budget_goals, action):
     """
     Adds or edits budget goals in a similar style to add_edit_transactions.
@@ -352,7 +358,6 @@ def add_edit_goals(budget_goals, action):
     return budget_goals
 
 
-
 def track_budget_goals(data, goals, report=None):
     """
     Tracks actual spending/earning against budget goals.
@@ -386,7 +391,6 @@ def track_budget_goals(data, goals, report=None):
     return report
 
 
-
 # view budget goals
 def view_budget_goals(budget_goals):
     """View the current budget goals."""
@@ -398,7 +402,9 @@ def view_budget_goals(budget_goals):
             print(f"Category: {category}, Goal: ${amount:.2f}")
     print("\n")
     
-
+# =========================
+# Generate / Export  Report
+# =========================
 
 # Generate a report
 def generate_report(data, goals):
@@ -476,7 +482,6 @@ def generate_report(data, goals):
         export_report(report)
 
 
-
 # export report to a file
 def export_report(report):
     """
@@ -503,9 +508,9 @@ def export_report(report):
     else:
         print("Report not saved.")
        
-
-
-
+# ==================
+# CLI & Main Program
+# ==================
 
 # Main Menu
 def main_menu():
@@ -523,7 +528,6 @@ def main_menu():
     print("11. Export to CSV File")
     print("12. Exit")
     return input("Choose an option (1-12): ")
-
 
 
 # Main Program
@@ -660,7 +664,6 @@ def budget_tracker():
 
         else:
             print("Invalid choice. Please enter a number between 1 and 12.")
-
 
 
 # Run program
